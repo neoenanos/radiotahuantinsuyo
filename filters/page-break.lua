@@ -14,7 +14,7 @@ local function header_text(el)
 end
 
 function Header(el)
-  if el.level >= 1 then
+  if el.level <= 2 then
     local text = header_text(el)
 
     -- Only add page break if NOT roman or arabic
