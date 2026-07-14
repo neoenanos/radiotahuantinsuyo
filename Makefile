@@ -29,7 +29,7 @@ CONTENT_FILTERS = tee # Use this to add sed filters or other piped commands
 # Pages to blank
 
 # === Configuration ===
-BOOK_PDF := build/pdf/book.pdf
+BOOK_PDF := build/pdf/radio_tahuantinsuyo.pdf
 
 # Debugging
 
