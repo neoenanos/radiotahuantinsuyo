@@ -9,7 +9,7 @@ export
 
 BUILD = build
 MAKEFILE = Makefile
-OUTPUT_FILENAME = book
+OUTPUT_FILENAME = radio_tahuantinsuyo
 METADATA = metadata.yml
 CHAPTERS += $(addprefix ./chapters/,\
 s/Radio_Tahuantinsuyo.md\
@@ -25,11 +25,6 @@ MATH_FORMULAS = --webtex
 # Chapters content
 CONTENT = awk 'FNR==1 && NR!=1 {print "\n\n"}{print}' $(CHAPTERS)
 CONTENT_FILTERS = tee # Use this to add sed filters or other piped commands
-
-# Pages to blank
-
-# === Configuration ===
-BOOK_PDF := build/pdf/radio_tahuantinsuyo.pdf
 
 # Debugging
 
