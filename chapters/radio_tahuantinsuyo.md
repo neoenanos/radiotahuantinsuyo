@@ -319,7 +319,7 @@ _Kusa, huq hunuman chayarun, waleqpuni._
 
 hace 3 años
 
-_Yo.lino.perez.hiillca.des.de.crau.apu..ey.llegado.alima.a.los.13.años.co.esa.muceca.era.nuy.tristarriba.peru.carajo_
+_Yo​.lino​.perez​.hiillca​.des​.de​.crau​.apu​.​.ey​.llegado​.alima​.a​.los​.13​.años​.co​.esa​.muceca​.era​.nuy​.tristarriba​.peru​.carajo_
 
 ## @gregoriotecsiestrada2752
 
