@@ -79,6 +79,7 @@ jobs:
             texlive-humanities \
             texlive-fonts-recommended \
             texlive-plain-generic \
+            texlive-lang-spanish \
             fonts-dejavu \
             fonts-noto \
             fonts-linuxlibertine \
