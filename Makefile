@@ -5,16 +5,26 @@
 # Build configuration
 
 OUTPUT_FILENAME = radio_tahuantinsuyo
-CHAPTERS_DIR=/media/martincito/freedom/neoenanos/radiopepe/chapters
 COVER_IMAGE = images/cover.jpg
+
+# If true, build directly from one markdown file.
+# If false, split the source into chapters first.
+SINGLE_SOURCE ?= false
+SPLIT_SRC := chapters/radio_tahuantinsuyo.md
+
+ifeq ($(SINGLE_SOURCE),true)
+CHAPTERS := ./chapters/radio_tahuantinsuyo.md
+else
+# Add many
+CHAPTERS += $(addprefix ./chapters/,\
+s/Radio_Tahuantinsuyo.md\
+)
+endif
 
 
 BUILD = build
 MAKEFILE = Makefile
 METADATA = metadata.yml
-CHAPTERS += $(addprefix ./chapters/,\
-s/Radio_Tahuantinsuyo.md\
-)
 
 TOC = --toc --toc-depth 5
 METADATA_ARGS = --metadata-file $(METADATA)
@@ -77,8 +87,6 @@ MKDIR_CMD = mkdir -p
 RMDIR_CMD = rm -r
 ECHO_BUILDING = @echo "building $@...\n\n"
 ECHO_BUILT = @echo "$@ was built\n\n"
-ECHO_COPYING = @echo "copying $(CHAPTERS_DIR) to chapters/ \n\n"
-CP_CHAPTERS = $(ECHO_COPYING) && cp $(CHAPTERS_DIR)/* chapters/
 RENAME_CHAPTERS = rename -f 's/ /_/g' chapters/*
 
 ####################################################################################################
@@ -93,9 +101,6 @@ book:	split epub html pdf docx
 
 clean:
 	$(RMDIR_CMD) $(BUILD)
-
-copy:
-	$(CP_CHAPTERS) && $(RENAME_CHAPTERS)
 
 ####################################################################################################
 # File builders
@@ -135,11 +140,17 @@ $(BUILD)/docx/$(OUTPUT_FILENAME).docx:	$(DOCX_DEPENDENCIES)
 	$(ECHO_BUILT)
 
 ####################################################################################################
-# Split gordo.md into chapters
+# Split book.md into chapters
 ####################################################################################################
 
-SPLIT_SRC := chapters/radio_tahuantinsuyo.md
 SPLIT_DIR := chapters/s
+
+ifeq ($(SINGLE_SOURCE),true)
+
+split:
+	@:
+
+else
 
 split:
 	@echo "Splitting $(SPLIT_SRC) into H1 sections..."
@@ -156,3 +167,5 @@ split:
 	} \
 	{ print >> out }' $(SPLIT_SRC)
 	@echo "Done."
+
+endif
