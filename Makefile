@@ -9,7 +9,7 @@ COVER_IMAGE = images/cover.jpg
 
 # If true, build directly from one markdown file.
 # If false, split the source into chapters first.
-SINGLE_SOURCE ?= false
+SINGLE_SOURCE ?= true
 SPLIT_SRC := chapters/radio_tahuantinsuyo.md
 
 ifeq ($(SINGLE_SOURCE),true)
