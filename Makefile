@@ -2,14 +2,15 @@
 # Configuration
 ####################################################################################################
 
-include .env
-export
-
 # Build configuration
+
+OUTPUT_FILENAME = radio_tahuantinsuyo
+CHAPTERS_DIR=/media/martincito/freedom/neoenanos/radiopepe/chapters
+COVER_IMAGE = images/cover.jpg
+
 
 BUILD = build
 MAKEFILE = Makefile
-OUTPUT_FILENAME = radio_tahuantinsuyo
 METADATA = metadata.yml
 CHAPTERS += $(addprefix ./chapters/,\
 s/Radio_Tahuantinsuyo.md\
@@ -19,7 +20,6 @@ TOC = --toc --toc-depth 5
 METADATA_ARGS = --metadata-file $(METADATA)
 IMAGES = $(shell find images -type f)
 TEMPLATES = $(shell find templates/ -type f)
-COVER_IMAGE = images/cover.jpg
 MATH_FORMULAS = --webtex
 
 # Chapters content
